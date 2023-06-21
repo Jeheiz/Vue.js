@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabella dati di tre macchine</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        table, th, td {
+          border: 1px solid rgb(153, 49, 49);
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Quantità</th>
+                <th>Prezzo</th>
+            </tr>
+            <tr v-for="(machine, index) in machines" :key="index">
+                <td>{{ machine.name }}</td>
+                <td>{{ machine.quantity }}</td>
+                <td>{{ machine.price }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                machines: [
+                    {name: "Audi", quantity: 5, price: 1000},
+                    {name: "Fiat", quantity: 3, price: 1500},
+                    {name: "Peugeot", quantity: 10, price: 800}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
